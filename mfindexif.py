@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 """
 TODO:
-    4. provide more tests such as
+    1. Enable tag aliases outside code, such as .mfindrc that contains
+       a mapping similar to the exif_tags below.
+    2. provide more tests such as
         a. -has-tag "tag_name"
         b. -ihas-tag "tag_name"  # case insensetive
         c. -rhas-tag "tag_name"  # regex
         The tags above can optional take a value
-    5. Supports files as arguments.
+    3. Supports files as arguments.
 """
 from __future__ import print_function
 
@@ -16,7 +18,7 @@ import logging
 import traceback
 import pyexiv2
 
-from pygnutools import Primary, ArgTest, ArgAction
+from mfinder import Primary, ArgTest, ArgAction
 
 
 logger = logging.getLogger('mfind')
@@ -197,7 +199,7 @@ actions = {
 
 
 def cli_args(parser):
-    """This will be called by the main cli_args() from pygnutools
+    """This will be called by the main cli_args() from mfind
     """
     parser.add_argument('-tag', dest='tag', action=ArgTest,
                         nargs=2,
